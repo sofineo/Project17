@@ -1,0 +1,47 @@
+Render
+
+Antes dos seus componentes serem exibidos na tela eles devem ser renderizados pelo React
+
+Render - processo de desenhar o componente na tela
+
+Objetivo do React é a construção de interface
+
+Ilustração:
+  Imagine que seus componentes são cozinheiros na cozinha montando pratos saborosos a partir dos ingredientes.
+
+  Nesse cenário o React é o garçom que faz os pedidos dos clientes e traz os seus pedidos.
+  Esse processo tem três etapas: acionar, renderizar, comprometer-se
+
+  obs: cliente será aonde o componente será renderizado
+
+Etapa 1: Acionar
+  Há duas razões para um componente renderizar:
+  1. Quando é a renderização inicial do componente
+  Quando o seu aplicativo é iniciad a renderização incial é acionada
+
+  2. O estado do componente  mudou:
+  A atualização do estado do componente enfileira automaticamente uma renderização. Você pode imaginar o cliente do restaurante pedindo mais coisas.
+
+Rerender - Re-renderiza quando o estado é atualizado:
+atualização do estado -> gatilho -> renderizar!
+
+Etapa 2: React renderiza seus componentes
+  Depois de acionar uma renderização, o React chama seus componentes para descobrir o que exibir na tela.
+  O Rendering é o React chamando seus componentes
+
+  Na renderização inicial, o React chamará o componente raiz
+
+  Para renderização o React chamará o componente de função cuja atualização de estado acionoi a renderização
+
+Esse processo é recursivo. O componente também pode disparar um gatilho para renderizar algo em seguida, e assim por diante.
+
+O processo continuará até que não haja mais componentes aninhados e o React saiba exatamente o que deve ser exibido na tela
+
+Etapa 3: React confirma as alterações na DOM
+  Após renderizar (chamar) seus componentes, o React modificará o DOM.
+
+  Para a renderização inicial, o React usará a API DOM para colocar todos os nós DOM criados na tela.
+
+  Para re-renderizações, o React aplicará as operações mínimas necessárias (calculadas durante a renderização) para fazer a DOM corresponder à saída de renderização mais recente. 
+
+  O React não toca no DOM se o resultado da renderização for o mesmo da última vez.
