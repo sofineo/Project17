@@ -8,6 +8,7 @@ import { Section } from '../../components/Section'
 import { Note } from '../../components/Note'
 import { useState, useEffect } from 'react'
 import { api } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 export function Home(){
   const [search, setSearch] = useState("")
@@ -15,7 +16,13 @@ export function Home(){
   const [tagsSelected, setTagsSelected] = useState([])
   const [notes, setNotes] = useState([])
 
+  const navigate = useNavigate()
+
   function handleTagSelected(tagName){
+    if (tagName === 'all') {
+      return setTagsSelected([])
+    }
+
     const alreadySelected = tagsSelected.includes(tagName)
   
     if(alreadySelected){
@@ -24,6 +31,11 @@ export function Home(){
     } else {
       setTagsSelected(prevState => [...prevState, tagName])
     }
+
+  }
+
+  function handleNoteDetails(noteId){
+    navigate(`/details/${noteId}`)
 
   }
   //useEffect não aceita async, logo, é necessário criar uma função async, porém, como somente é pra usar dentro do useEffect, pode ser criada dentro e chamar ela dentro mesmo
@@ -91,6 +103,7 @@ export function Home(){
             <Note 
             key={String(note.id)}
             data={note}
+            onClick={() => handleNoteDetails(note.id)}
             />
           ))        
         }

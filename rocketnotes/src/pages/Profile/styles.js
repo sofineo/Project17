@@ -18,6 +18,11 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       font-size: 24px;
     }
+
+    button {
+      background: transparent;
+      border: none;
+    }
   }
 `
 
@@ -64,6 +69,7 @@ export const Avatar = styled.div`
     input {
       display: none;
     }
+
 
     svg {
       width: 20px;
