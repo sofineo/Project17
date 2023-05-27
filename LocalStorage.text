@@ -1,0 +1,37 @@
+Local Storage
+
+Permite armazenar informações no navegador do usuário.
+
+Estrutura do Local Storage
+
+Local Storage Chave Valor
+
+localStorage.setItem("user", "Sofia Neo");
+
+objeto, deve fazer parse (obj para texto)
+JSON.stringify(objeto)
+
+no navegador é armazenado em formato de texto
+
+
+useEffect
+
+O que o useEffect faz?
+Você diz ao React que o componente precisa fazer algo depois da renderização. Isto é, depois que realizar as atualizações da DOM
+
+Por que useEffect é chamado dentro de um componente?
+Colocando useEffect dentro do componente nos permite acessar os estados do componente
+
+export function MyComponent(){
+  const [name, setName] = useState("")
+
+  useEffect(( ) => {
+    searchByName()
+  }, [name])
+
+  return (
+    // ...
+  )
+}
+
+o [] é a dependencia que vc coloca, se for vazio, significa que será renderizado apenas uma vez.
